@@ -17,7 +17,7 @@ const Status = (props: any) => {
             </div>
             <div className="text-5xl flex items-center justify-center p-5 font-light text-black">
                 <p className="font-bold mr-2">Tipo: </p>
-                {props.TipoDoPokemon}
+                {props.TipoDoPokemon} {props.TipoDoPokemon2}
             </div>
 
         </div>
