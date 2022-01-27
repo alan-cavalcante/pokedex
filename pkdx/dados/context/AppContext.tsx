@@ -8,8 +8,9 @@ interface AppContextProps {
   hp?: number,
   ataque?: number,
   tipo?: string,
-  tipo2?: string,
-  foto?: string,
+  tipo2?: string | void,
+  id?:number,
+  foto?: any,
   setarId: (e: number) => any
 }
 
@@ -19,7 +20,6 @@ const AppContext = createContext<AppContextProps>({
 })
 
 //IMPLANTAR A CHAMADA
-
 
 export function AppProvider(props: any) {
 
@@ -33,12 +33,12 @@ export function AppProvider(props: any) {
         const name = pokemon.name.toUpperCase()
         setNome(name)
         const type = pokemon.types
-        console.log(type)
+        // console.log(type)
         setTipo(type[0].type.name)
-        type[1] ? setTipo2(type[1].type.name) : null
-        // const foto = pokemon.sprites.front_default
-        // console.log(foto)
-        // setFoto(foto)
+        type[1] ? setTipo2(type[1].type.name) : setTipo2('')
+        const foto = pokemon.sprites.front_default
+        console.log(foto)
+        setFoto(foto)
       })
   }
 
@@ -48,7 +48,7 @@ export function AppProvider(props: any) {
   const [tipo, setTipo] = useState('')
   const [tipo2, setTipo2] = useState('')
   const [id, setId] = useState()
-  // const [foto, setFoto] = useState('')
+  const [foto, setFoto] = useState('')
 
   function setarId(e: any) {
     // console.log(e)
@@ -63,7 +63,8 @@ export function AppProvider(props: any) {
       ataque,
       tipo,
       tipo2,
-      // foto,
+      foto,
+      id,
       setarId
     }}>
       {props.children}

@@ -12,6 +12,11 @@ import Image from 'next/image'
 const Home: NextPage = () => {
 
   const dados = useAppData()
+
+  const loaderImg = () => {
+    return dados.foto
+  }
+
   return (
     <div className='h-screen flex flex-col items-center'>
 
@@ -33,11 +38,11 @@ const Home: NextPage = () => {
         </QuadroBranco>
 
         <QuadroBranco>
-          <FotoPokemon></FotoPokemon>
+          {dados.id ? <FotoPokemon><Image loader={loaderImg} src="/" alt='pokemon' width={200} height={200} quality={100}/></FotoPokemon> : null}
         </QuadroBranco>
 
-      </Main>
       <span className="material-icons mt-6 text-5xl animate-bounce">catching_pokemon</span>
+      </Main>
 
     </div>
   )
