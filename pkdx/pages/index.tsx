@@ -8,6 +8,8 @@ import RequisicaoDeId from '../components/RequisicaoDeId'
 import Status from '../components/Status'
 import useAppData from '../dados/hook/useAppData'
 import Image from 'next/image'
+import Footer from '../components/Footer'
+
 
 const Home: NextPage = () => {
 
@@ -31,18 +33,21 @@ const Home: NextPage = () => {
       <Header />
 
       <Main>
+        <div className='flex flex-col p-6 w-full h-full bg-orange-500 items-center justify-center
+    sm:flex-col md:flex-row'>
+          <QuadroBranco>
+            <RequisicaoDeId />
+            <Status nomeDoPokemon={dados.nome} HPDoPokemon={dados.hp} AtaqueDoPokemon={dados.ataque} TipoDoPokemon={dados.tipo} TipoDoPokemon2={dados.tipo2} />
+          </QuadroBranco>
 
-        <QuadroBranco>
-          <RequisicaoDeId />
-          <Status nomeDoPokemon={dados.nome} HPDoPokemon={dados.hp} AtaqueDoPokemon={dados.ataque} TipoDoPokemon={dados.tipo} TipoDoPokemon2={dados.tipo2} />
-        </QuadroBranco>
-
-        <QuadroBranco>
-          {dados.id ? <FotoPokemon><Image loader={loaderImg} src="/" alt='pokemon' width={200} height={200} quality={100}/></FotoPokemon> : null}
-        </QuadroBranco>
-
-      <span className="material-icons mt-6 text-5xl animate-bounce">catching_pokemon</span>
+          <QuadroBranco>
+            {dados.id ? <FotoPokemon><Image loader={loaderImg} src="/" alt='pokemon' width={200} height={200} quality={100} /></FotoPokemon> : null}
+          </QuadroBranco>
+        </div>
+        <span className="material-icons mt-4 text-5xl animate-bounce">catching_pokemon</span>
       </Main>
+
+      <Footer />
 
     </div>
   )
