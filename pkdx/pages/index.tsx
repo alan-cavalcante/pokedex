@@ -29,9 +29,7 @@ const Home: NextPage = () => {
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet"></link>
       </Head>
-
       <Header />
-
       <Main>
         <div className='flex flex-col p-6 w-full h-full bg-orange-500 items-center justify-center
     sm:flex-col md:flex-row'>

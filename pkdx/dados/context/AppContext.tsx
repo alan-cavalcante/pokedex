@@ -37,7 +37,6 @@ export function AppProvider(props: any) {
         setTipo(type[0].type.name)
         type[1] ? setTipo2(type[1].type.name) : setTipo2('')
         const foto = pokemon.sprites.front_default
-        console.log(foto)
         setFoto(foto)
       })
   }
